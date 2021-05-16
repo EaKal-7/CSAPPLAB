@@ -8,7 +8,7 @@
 
 但是要不执行完test，而去执行touch1
 
-![image-20210504003846993](C:\Users\77161\AppData\Roaming\Typora\typora-user-images\image-20210504003846993.png)
+![image-20210504003846993](https://i.loli.net/2021/05/16/8sHPYmoVcapCBGu.png)
 
 ```c
 unsigned int __cdecl getbuf()
@@ -80,25 +80,25 @@ c3 00 00 00
 
 # touch3
 
-![image-20210507154847522](https://i.loli.net/2021/05/07/cUGS7f3EJVPz4HW.png)
+![image-20210507154847522](https://i.loli.net/2021/05/16/IFfTnwOvuhA4XY2.png)
 
 不难发现传入了一个参数这个参数与cookie进行了比较
 
-![image-20210507155718748](C:\Users\77161\AppData\Roaming\Typora\typora-user-images\image-20210507155718748.png)
+![image-20210507155718748](https://i.loli.net/2021/05/16/Wq5MHs2z9YSubPK.png)
 
 从汇编里可以发现了在touch3的开始将sval值设置成rdi，说明rdi是存放参数地址的那个寄存器。（PS：这里要求cookie是个字符串的所以要存在栈里）
 
 所以有了以下攻击序列：
 
-![image-20210507162145452](C:\Users\77161\AppData\Roaming\Typora\typora-user-images\image-20210507162145452.png)
+![image-20210507162145452](https://i.loli.net/2021/05/16/qy6FemW9Jzrhguf.png)
 
 然后就mad显而易见的错误了，这里看到
 
-![image-20210507162217555](https://i.loli.net/2021/05/07/IurKCb5Oq9VkPFS.png)
+![image-20210507162217555](https://i.loli.net/2021/05/16/kXhK5dj9LSGms3v.png)
 
 在touch3里面有一个函数申请了110的空间，我直接az了，然后就有了下面这张
 
-![image-20210507162313534](C:\Users\77161\AppData\Roaming\Typora\typora-user-images\image-20210507162313534.png)
+![image-20210507162313534](https://i.loli.net/2021/05/16/V4NvTFGZA7Pzc5K.png)
 
 攻击序列：
 
@@ -127,7 +127,7 @@ ROP简单来说有两个特性：
 
 
 
-![image-20210507162618951](https://i.loli.net/2021/05/07/Et75bKCLdUJaqiR.png)
+![image-20210507162618951](https://i.loli.net/2021/05/16/UgaJkWCj8xqOQtS.png)
 
 这里说明需要从Gadget中找到对应的片段来进行攻击就行了：
 
