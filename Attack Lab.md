@@ -46,7 +46,7 @@ c0 17 40 00
 
 这道题我一开始没看懂，一开始一直以为是参数压栈的方式来攻击，发现我多少有点大病，然后去看了一眼blog.，大致上的画了一张图。
 
-![image-20210507154651560](C:\Users\77161\AppData\Roaming\Typora\typora-user-images\image-20210507154651560.png)
+![image-20210507154651560](https://i.loli.net/2021/05/16/ROENfpWoJuQM6Td.png)
 
 大致上是这么一个意思
 
